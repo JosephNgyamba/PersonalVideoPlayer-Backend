@@ -4,8 +4,9 @@ const express=require('express');
 const mongoose=require('mongoose');
 const cors=require('cors');
 const app=express();
-const commentRoute=require('./routes/commentaires');
-const userRoute=require('./routes/user')
+const commentRoute=require('./routes/comments');
+const userRoute=require('./routes/users');
+const likeRouter = require('./routes/likes');
 
 // cors(police) pour permettre l'accès à notre API 
 app.use(cors());
@@ -27,8 +28,9 @@ mongoose.connect('mongodb+srv://Joseph:JosephMongoData@cluster0.9bkt0ap.mongodb.
 
 // on importe notre controlers
 
-app.use('/commentaires',commentRoute);
-app.use('/user',userRoute);
+app.use('/comments',commentRoute);
+app.use('/users',userRoute);
+app.use('/likes',likeRouter)
 
 
 app.listen(process.env.PORT||{port},()=>{console.log('server started')});

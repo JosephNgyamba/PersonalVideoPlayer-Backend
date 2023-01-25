@@ -1,6 +1,6 @@
 const express=require('express');
 const userRoute=express.Router();
-const userCtrl=require('../controlers/userControlers')
+const userCtrl=require('../controlers/usersControlers')
 
 userRoute.post('/',userCtrl.createUser);
 userRoute.put('/',userCtrl.updateUser);
