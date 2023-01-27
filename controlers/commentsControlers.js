@@ -3,13 +3,18 @@ const Comments=require('../model/modelComments');
 
 
 exports.createComment=(req,res,next)=>{
+ try {
      console.log(req.body);
-     const userComment=new Comments({
+        const userComment=new Comments({
           ...req.body
      });
      userComment.save()
      .then(()=>res.status(200).json({message:'commentaire créé'}))
      .catch(error=>res.status(400).json({error}))
+ } catch (error) {
+     res.status(500).json({message:"Something wrong"})
+ }
+  
 }
 
 exports.getAllComment=(req,res,next)=>{

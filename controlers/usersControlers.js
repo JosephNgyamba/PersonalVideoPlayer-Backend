@@ -2,7 +2,6 @@ const Users = require('../model/modelUsers');
 
 
 exports.createUser=(req,res,next)=>{
-
       const userInfo=new Users({
           ...req.body
      });

@@ -7,6 +7,7 @@ const app=express();
 const commentRoute=require('./routes/comments');
 const userRoute=require('./routes/users');
 const likeRouter = require('./routes/likes');
+const disLikeRouter = require('./routes/disLikes');
 
 // cors(police) pour permettre l'accès à notre API 
 app.use(cors());
@@ -30,7 +31,8 @@ mongoose.connect('mongodb+srv://Joseph:JosephMongoData@cluster0.9bkt0ap.mongodb.
 
 app.use('/comments',commentRoute);
 app.use('/users',userRoute);
-app.use('/likes',likeRouter)
+app.use('/likes',likeRouter);
+app.use('/disLikes',disLikeRouter);
 
 
 app.listen(process.env.PORT||{port},()=>{console.log('server started')});

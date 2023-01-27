@@ -1,8 +1,8 @@
 const mongoose=require('mongoose');
-const likesSchema=mongoose.Schema({
+const disLikesSchema=mongoose.Schema({
     CommentId:{type:mongoose.Schema.Types.ObjectId,
     ref:"Comments" },
     userId:{type:mongoose.Schema.Types.ObjectId,
     ref:"Users"}
 })
-module.exports=mongoose.model('Likes',likesSchema);
+module.exports=mongoose.model('DisLikes',disLikesSchema);
