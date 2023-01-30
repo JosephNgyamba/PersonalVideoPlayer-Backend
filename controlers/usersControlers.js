@@ -34,3 +34,21 @@ exports.deleteUser=(req,res,next)=>{
         .then(()=>res.status(200).json({message:'user modifié'}))
         .catch(error=>res.status(400).json({error}))
 }
+exports.userLogin=(req,res,next)=>{
+       
+        Users.findOne(
+                {mail:req.body.mail})
+        .then((user)=>{
+                if (user==null) {
+                        const user=new Users(
+                                {...req.body}
+                        )
+                        user.save()
+                        .then((user)=>res.status(201).json(user))
+                        .catch((error)=>res.status(400).json({error}));
+                } else {
+                        res.status(200).json(user)
+                }
+        }) 
+        .catch((error)=>res.status(400).json({error}));       
+}
