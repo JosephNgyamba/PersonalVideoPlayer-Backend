@@ -13,3 +13,6 @@ exports.getLikes=(req,res)=>{
     .then(likes=>res.status(200).json(likes))
     .catch(error=>res.status(400).json({error}))
 }
+exports.getOneLikes=(req,res)=>{
+    likes.findOne({_id:req.params.videoId},{...req.body,_id:req.params.videoId})
+}

@@ -35,6 +35,6 @@ app.use('/likes',likeRouter);
 app.use('/disLikes',disLikeRouter);
 
 
-app.listen(process.env.PORT||{port},()=>{console.log('server started')});
+app.listen(process.env.PORT||{port},()=>{console.log('server started'+':'+'on port'+':'+port)});
 
 module.exports=app

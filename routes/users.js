@@ -2,9 +2,9 @@ const express=require('express');
 const userRoute=express.Router();
 const userCtrl=require('../controlers/usersControlers')
 
-userRoute.post('/',userCtrl.createUser);
-userRoute.put('/',userCtrl.updateUser);
-userRoute.delete('/',userCtrl.deleteUser);
-// userRoute.get('/',userCtrl.getUser);
+userRoute.post('/post',userCtrl.createUser);
+userRoute.put('/put',userCtrl.updateUser);
+userRoute.delete('/delete',userCtrl.deleteUser);
+userRoute.get('/get',userCtrl.getUsers);
 
 module.exports=userRoute;
